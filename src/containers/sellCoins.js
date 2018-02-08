@@ -30,6 +30,17 @@ class SellCoins extends Component {
             return;
         }
 
+        //local integer value
+        let sellShintoCoinValue = parseInt(localValue, 10);
+
+        //prevent user from entering a shinto coin sale value greater than what they have
+        if(this.props.numberOfShintoCoinsOwned < sellShintoCoinValue)
+        {
+            //console.log("in shintocoin shortsale check");
+            alert('You cannot short sell your shinto coins!');
+            return;
+        }
+
         //Update state
         this.setState({shintoCoinSaleEntry: localValue});
 
